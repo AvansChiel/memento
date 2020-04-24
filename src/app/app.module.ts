@@ -12,12 +12,14 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './pages/public/register/register.component';
 import { LoginComponent } from './pages/public/login/login.component';
 import { environment } from 'src/environments/environment';
+import { ProjectComponent } from './pages/private/project/project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
