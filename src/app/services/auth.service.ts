@@ -41,6 +41,7 @@ export class AuthService {
   async signOut(){
     //signout
     await this.afAuth.signOut();
+    this.router.navigate(['/login']);
   }
 
   private updateUserData(user){
