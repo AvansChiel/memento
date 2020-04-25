@@ -1,12 +1,36 @@
-<div *ngIf="auth.user$ | async as user; else login">
-    {{user | json}}
-    <hr>
-    <button class="button" (click)="auth.signOut()">Sign Out</button>
+<nav class="uk-navbar-container uk-margin" uk-navbar>
+    <div class="uk-navbar-left">
 
-</div>
+        <a class="uk-navbar-item uk-logo">Memento</a>
 
-<ng-template #login>
-    <button class="button" (click)="auth.googleSignIn()">sign in with google</button>
-</ng-template>
+        <ul class="uk-navbar-nav">
+            <li>
+                <a href="#">
+                    <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span>
+                    Features
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+            <li>
+                <a>
+                    <div *ngIf="auth.user$ | async as user;">{{user.displayName}}</div>
+                </a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li class="uk-active"><a>My Account</a></li>
+                        <li><a (click)="auth.signOut()">Sign Out</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<ng-template #login></ng-template>
 
 <router-outlet></router-outlet>
